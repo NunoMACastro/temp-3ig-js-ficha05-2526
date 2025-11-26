@@ -1,0 +1,31 @@
+<!--
+    Partial _alerts.ejs
+    --------------------
+    OBJETIVO:
+    - Mostrar mensagens de erro (ou avisos) no topo da página.
+    - Usado em várias vistas (login, lista, detalhe, admin, ...).
+
+    COMO USAR:
+    - Inclui o partial passando um array de erros:
+        &lt;%- include('../partials/_alerts', { erros }) %&gt;
+
+    VARIÁVEIS ESPERADAS:
+    - erros → array de strings com mensagens para o utilizador.
+      Se for undefined, null ou vazio, não aparece nada.
+-->
+
+<% if (typeof erros !== 'undefined' && erros && erros.length) { %>
+    <div class="conspira-alert" role="alert">
+        <div class="conspira-alert__icon" aria-hidden="true">
+            <i class="ph ph-warning-circle"></i>
+        </div>
+        <div class="conspira-alert__body">
+            <p class="conspira-alert__title">Ups! Algo não correu bem.</p>
+            <ul class="conspira-alert__list">
+                <% erros.forEach(function (msg) { %>
+                    <li><%= msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+<% } %>

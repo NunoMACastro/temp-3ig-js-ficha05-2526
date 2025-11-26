@@ -1,0 +1,143 @@
+<%- include('../partials/_head') %>
+<%- include('../partials/_navbar') %>
+
+<div class="conspira-shell-gradient">
+    <main class="container admin-form-layout">
+        <section class="admin-form-hero">
+            <a href="/admin/teorias" class="detail-back-link">
+                <span class="detail-back-icon">←</span>
+                Voltar à gestão
+            </a>
+
+            <div>
+                <p class="admin-eyebrow">
+                    <%= mode === 'create' ? 'Criar teoria' : 'Editar teoria' %>
+                </p>
+                <h1><%= tituloPagina %></h1>
+                <% if (mode === 'create') { %>
+                <p>
+                    Preenche os campos para lançar uma nova teoria na
+                    plataforma. O slug será gerado automaticamente a partir do
+                    título.
+                </p>
+                <% } else { %>
+                <p>
+                    Atualiza os detalhes desta teoria sem alterar o slug nem as
+                    ligações partilhadas anteriormente.
+                </p>
+                <% } %>
+            </div>
+        </section>
+
+        <%- include('../partials/_alerts', { erros }) %>
+
+        <article class="admin-form-card">
+            <form action="<%= action %>" method="post" class="admin-form">
+                <div class="admin-form-field">
+                    <label for="title">Título da teoria</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        placeholder="Ex.: Os semáforos empáticos que ajustam o trânsito ao humor da cidade"
+                        required
+                        minlength="5"
+                        value="<%= valores.title %>"
+                    />
+                    <small>Usa um título sugestivo, mas claro.</small>
+                </div>
+
+                <div class="admin-form-field">
+                    <label for="summary">Resumo curto</label>
+                    <textarea
+                        id="summary"
+                        name="summary"
+                        rows="3"
+                        placeholder="Uma frase ou parágrafo que resuma a essência."
+                        required
+                        minlength="10"
+                    ><%= valores.summary %></textarea>
+                    <small>Este texto aparece na listagem pública e no destaque.</small>
+                </div>
+
+                <div class="admin-form-field">
+                    <label for="content">Conteúdo completo</label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        rows="8"
+                        placeholder="Descreve a teoria com contexto, 'provas' e consequências."
+                        required
+                        minlength="20"
+                        style="white-space: pre-line"
+                    ><%= valores.content %></textarea>
+                    <small>Quanto mais consistente for a narrativa, melhor.</small>
+                </div>
+
+                <div class="admin-form-field">
+                    <label>Nível de complexidade</label>
+                    <div class="admin-complexity-options">
+                        <label class="admin-radio-pill">
+                            <input
+                                type="radio"
+                                name="complexityLevel"
+                                value="low"
+                                <%= valores.complexityLevel === 'low' ? 'checked' : '' %>
+                            />
+                            Baixa
+                        </label>
+                        <label class="admin-radio-pill">
+                            <input
+                                type="radio"
+                                name="complexityLevel"
+                                value="medium"
+                                <%= (!valores.complexityLevel || valores.complexityLevel === 'medium') ? 'checked' : '' %>
+                            />
+                            Média
+                        </label>
+                        <label class="admin-radio-pill">
+                            <input
+                                type="radio"
+                                name="complexityLevel"
+                                value="high"
+                                <%= valores.complexityLevel === 'high' ? 'checked' : '' %>
+                            />
+                            Alta
+                        </label>
+                    </div>
+                    <small>Serve para orientar o leitor; não altera a lógica do site.</small>
+                </div>
+
+                <div class="admin-form-field">
+                    <label for="tags">Tags (separadas por vírgulas)</label>
+                    <input
+                        type="text"
+                        id="tags"
+                        name="tags"
+                        placeholder="Ex.: transito, monitorizacao, humor"
+                        value="<%= valores.tags %>"
+                    />
+                    <small>
+                        As tags surgem como chips na interface pública e ajudam
+                        a organizar as teorias por temas.
+                    </small>
+                </div>
+
+                <div class="admin-form-actions">
+                    <a href="/admin/teorias" class="admin-action-btn">
+                        Cancelar
+                    </a>
+                    <button type="submit" class="admin-action-btn admin-action-btn--primary">
+                        <% if (mode === 'create') { %>
+                            Criar teoria
+                        <% } else { %>
+                            Guardar alterações
+                        <% } %>
+                    </button>
+                </div>
+            </form>
+        </article>
+    </main>
+</div>
+
+<%- include('../partials/_footer') %>

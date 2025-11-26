@@ -1,0 +1,145 @@
+<%- include('../partials/_head') %> <%- include('../partials/_navbar') %>
+
+<div class="conspira-shell-gradient">
+    <main class="conspira-page-shell container">
+        <section class="conspira-list-hero text-center">
+            <h1 class="conspira-hero-title">Teorias da Conspiração</h1>
+            <p class="conspira-hero-subtitle">
+                Descobre as teorias de conspiração mais intrigantes e absurdas
+                da internet. E se calhar... Este próprio site é um portal para uma ilha secreta onde a elite se reúne para decidir o número de folhas de papel higiénico que deve existir na EPMS... We will never know!
+            </p>
+
+            <p class="conspira-list-meta">
+                Atualmente temos <strong><%= total %></strong> teorias
+                publicadas.
+            </p>
+        </section>
+
+        <!-- Erros globais -->
+        <%- include('../partials/_alerts', { erros }) %>
+
+        <% if (!theories || theories.length === 0) { %>
+        <div class="conspira-empty-card text-center">
+            <h3>Ainda não existem teorias</h3>
+            <p>
+                Assim que criares a primeira teoria na área de administração,
+                ela aparecerá aqui com todo o destaque.
+            </p>
+            <a href="/admin/teorias/nova" class="conspira-link-pill mt-3"
+                >Criar a primeira teoria</a
+            >
+        </div>
+        <% } else { %>
+
+        <div class="conspira-theory-stack">
+            <% theories.forEach((t, index) => { %>
+            <article class="theory-card-v2">
+                <div class="theory-card-v2__flex">
+                    <div
+                        class="theory-card-v2__accent accent-<%= t.complexityLevel || 'medium' %>"
+                    ></div>
+
+                    <div class="theory-card-v2__body">
+                        <div class="theory-card-v2__header">
+                            <div class="theory-card-v2__index">
+                                <span class="theory-card-v2__number"
+                                    ><%= index + 1 %></span
+                                >
+                                <span
+                                    class="theory-card-v2__badge complexity-<%= t.complexityLevel || 'medium' %>"
+                                >
+                                    <span class="theory-card-v2__badge-icon"
+                                        >↗</span
+                                    >
+                                    <span>
+                                        <%= t.complexityLevel === 'low'
+                                            ? 'Baixa'
+                                            : t.complexityLevel === 'high'
+                                            ? 'Alta'
+                                            : 'Média' %>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <% if (typeof currentUser !== 'undefined' &&
+                            currentUser) { %>
+                            <div class="theory-card-v2__actions">
+                                <a
+                                    href="/admin/teorias/<%= t._id %>/editar"
+                                    class="theory-card-v2__action-btn"
+                                >
+                                    Editar
+                                </a>
+                                <form
+                                    action="/admin/teorias/<%= t._id %>/apagar"
+                                    method="post"
+                                    onsubmit="return confirm('Tens a certeza que queres apagar esta teoria? Esta ação não pode ser desfeita.');"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="theory-card-v2__action-btn action-danger"
+                                    >
+                                        Apagar
+                                    </button>
+                                </form>
+                            </div>
+                            <% } %>
+                        </div>
+
+                        <a
+                            href="/teorias/<%= t.slug %>"
+                            class="theory-card-v2__title-link"
+                        >
+                            <h2 class="theory-card-v2__title">
+                                <%= t.title %>
+                            </h2>
+                        </a>
+
+                        <p class="theory-card-v2__summary">
+                            <%= t.summary %>
+                        </p>
+
+                        <% if (t.tags && t.tags.length > 0) { %>
+                        <div class="theory-card-v2__tags">
+                            <% t.tags.forEach(tag => { %>
+                            <span class="tag-pill">
+                                <span class="tag-pill-icon">#</span> <%= tag %>
+                            </span>
+                            <% }) %>
+                        </div>
+                        <% } %>
+
+                        <% const commentCount = (t.comments &&
+                        t.comments.length) || 0; %>
+                        <div class="theory-card-v2__meta">
+                            <span>
+                                <i
+                                    class="ph ph-calendar-blank theory-card-v2__meta-icon"
+                                    aria-hidden="true"
+                                ></i>
+                                <% if (t.createdAt) { %>
+                                <%= new
+                                Date(t.createdAt).toLocaleDateString('pt-PT') %>
+                                <% } else { %>
+                                Data desconhecida
+                                <% } %>
+                            </span>
+                            <span>
+                                <i
+                                    class="ph ph-chats-circle theory-card-v2__meta-icon"
+                                    aria-hidden="true"
+                                ></i>
+                                <%= commentCount %> comentário(s)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+
+        <% } %>
+    </main>
+</div>
+
+<%- include('../partials/_footer') %>

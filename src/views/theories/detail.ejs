@@ -1,0 +1,165 @@
+<%- include('../partials/_head') %> <%- include('../partials/_navbar') %>
+
+<div class="conspira-shell-gradient">
+    <main class="container theory-detail-layout">
+        <div class="detail-back-link-wrapper">
+            <a href="/teorias" class="detail-back-link">
+                <span class="detail-back-icon">←</span>
+                Voltar às teorias
+            </a>
+        </div>
+
+        <!-- Erros globais (teoria não encontrada, etc.) -->
+        <%- include('../partials/_alerts', { erros }) %>
+
+        <% if (!theory) { %>
+        <div class="conspira-empty-card text-center detail-empty-card">
+            <h1 class="mb-3"><%= tituloPagina %></h1>
+            <p class="mb-4">
+                A teoria que procuraste não foi encontrada ou já não existe.
+            </p>
+            <a href="/teorias" class="conspira-link-pill">Voltar à lista</a>
+        </div>
+        <% } else { %>
+
+        <article class="theory-detail-card-v2">
+            <div class="theory-detail-card-v2__badge-row">
+                <span
+                    class="theory-card-v2__badge complexity-<%= theory.complexityLevel || 'medium' %>"
+                >
+                    <span class="theory-card-v2__badge-icon">↗</span>
+                    <%= theory.complexityLevel === 'low'
+                        ? 'Complexidade baixa'
+                        : theory.complexityLevel === 'high'
+                        ? 'Complexidade alta'
+                        : 'Complexidade média' %>
+                </span>
+
+                <div class="detail-meta">
+                    <% if (theory.createdAt) { %>
+                    <span>
+                        <i
+                            class="ph ph-calendar-blank theory-card-v2__meta-icon"
+                            aria-hidden="true"
+                        ></i>
+                        <%= new Date(theory.createdAt).toLocaleDateString('pt-PT', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                        }) %>
+                    </span>
+                    <% } %>
+                    <% if (theory.comments && theory.comments.length) { %>
+                    <span>
+                        <i
+                            class="ph ph-chats-circle theory-card-v2__meta-icon"
+                            aria-hidden="true"
+                        ></i>
+                        <%= theory.comments.length %> comentário(s)
+                    </span>
+                    <% } %>
+                </div>
+            </div>
+
+            <h1 class="theory-detail-card-v2__title"><%= theory.title %></h1>
+
+            <div class="theory-detail-summary-v2">
+                <p class="mb-0"><%= theory.summary %></p>
+            </div>
+
+            <div class="theory-detail-content-v2">
+                <p style="white-space: pre-line"><%= theory.content %></p>
+            </div>
+
+            <% if (theory.tags && theory.tags.length > 0) { %>
+            <div class="theory-card-v2__tags detail-tags">
+                <% theory.tags.forEach(tag => { %>
+                <span class="tag-pill">
+                    <span class="tag-pill-icon">#</span>
+                    <%= tag %>
+                </span>
+                <% }) %>
+            </div>
+            <% } %>
+        </article>
+
+        <section class="detail-comments-section">
+            <div class="detail-comments-header">
+                <div>
+                    <i
+                        class="ph ph-chats-circle detail-comments-icon"
+                        aria-hidden="true"
+                    ></i>
+                    <h2>Comentários</h2>
+                </div>
+                <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+                <span class="detail-comments-user">
+                    Autenticado como
+                    <strong><%= currentUser.displayName %></strong>
+                </span>
+                <% } %>
+            </div>
+
+            <% const comentarios = theory.comments || []; %>
+            <% if (comentarios.length === 0) { %>
+            <div class="detail-comments-empty">
+                Ainda não há comentários. Sê o primeiro a partilhar a tua
+                perspetiva!
+            </div>
+            <% } else { %>
+            <div class="detail-comments-list">
+                <% comentarios.forEach(c => { %>
+                <article class="detail-comment-card">
+                    <div class="detail-comment-card__header">
+                        <span class="detail-comment-author">
+                            <%= c.authorName || 'Utilizador anónimo' %>
+                        </span>
+                        <% if (c.createdAt) { %>
+                        <span class="detail-comment-date">
+                            <%= new Date(c.createdAt).toLocaleDateString('pt-PT') %>
+                        </span>
+                        <% } %>
+                    </div>
+                    <p class="detail-comment-text" style="white-space: pre-line">
+                        <%= c.text %>
+                    </p>
+                </article>
+                <% }) %>
+            </div>
+            <% } %>
+
+            <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+            <div class="detail-comment-form">
+                <form action="/teorias/<%= theory.slug %>/comments" method="post">
+                    <label for="text" class="detail-form-label">
+                        Partilha a tua opinião
+                    </label>
+                    <textarea
+                        id="text"
+                        name="text"
+                        rows="4"
+                        class="detail-form-textarea"
+                        placeholder="Escreve algo incrível sobre esta teoria..."
+                        required
+                        minlength="2"
+                    ><%= commentValue %></textarea>
+                    <div class="detail-form-actions">
+                        <button type="submit" class="detail-form-submit">
+                            Publicar comentário
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <% } else { %>
+            <div class="detail-comment-login">
+                <p class="mb-3">Precisas de iniciar sessão para comentar.</p>
+                <a href="/login" class="conspira-link-pill">Fazer login</a>
+            </div>
+            <% } %>
+        </section>
+
+        <% } %>
+    </main>
+</div>
+
+<%- include('../partials/_footer') %>

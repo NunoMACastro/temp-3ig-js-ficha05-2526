@@ -1,0 +1,69 @@
+<% let userInitials = ''; %>
+<% if (typeof currentUser !== 'undefined' && currentUser) { %>
+    <% userInitials = currentUser.displayName
+        .split(/\s+/)
+        .filter(Boolean)
+        .map(parte => parte[0])
+        .join('')
+        .slice(0, 2)
+        .toUpperCase(); %>
+<% } %>
+
+<header class="conspira-header shadow-sm">
+    <div class="container conspira-header__inner">
+        <a href="/teorias" class="conspira-header__brand">
+            <span class="conspira-brand-icon"
+                ><i class="ph-bold ph-eye" aria-hidden="true"></i
+            ></span>
+            <span class="conspira-brand-main">
+                <span class="conspira-brand-title">Conspira</span>
+                <span class="conspira-brand-subtitle">Teorias da Conspiração</span>
+            </span>
+        </a>
+
+        <nav class="conspira-header__nav">
+
+            <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+            <a
+                href="/admin/teorias/nova"
+                class="conspira-nav-link conspira-nav-link--primary"
+            >
+                <i class="ph ph-plus" aria-hidden="true"></i>
+                Nova Teoria
+            </a>
+
+            <div class="conspira-user-pill">
+                <div class="conspira-user-pill__avatar">
+                    <% if (userInitials) { %>
+                    <%= userInitials %>
+                    <% } else { %>
+                    <i class="ph-bold ph-user" aria-hidden="true"></i>
+                    <% } %>
+                </div>
+                <div>
+                    <span class="conspira-user-pill__name"
+                        ><%= currentUser.displayName %></span
+                    >
+                    <span class="conspira-user-pill__role"
+                        ><%= currentUser.role %></span
+                    >
+                </div>
+            </div>
+
+            <form action="/logout" method="post" class="conspira-nav-link">
+                <button type="submit" class="conspira-link-button">
+                    <i class="ph ph-sign-out" aria-hidden="true"></i>
+                    Sair
+                </button>
+            </form>
+            <% } else { %>
+            <a
+                href="/login"
+                class="conspira-nav-link conspira-nav-link--primary"
+            >
+                Entrar
+            </a>
+            <% } %>
+        </nav>
+    </div>
+</header>

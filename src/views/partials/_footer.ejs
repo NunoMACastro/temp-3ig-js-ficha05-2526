@@ -1,0 +1,52 @@
+        <!--
+            Partial _footer.ejs
+            -------------------
+            OBJETIVO:
+            - Fechar o layout da página:
+                - footer comum a todas as vistas
+                - scripts JS partilhados (Bootstrap, etc.)
+                - fecho de </body> e </html>
+
+            COMO É USADO:
+            - No fim de cada vista EJS:
+                &lt;%- include('../partials/_footer') %&gt;
+        -->
+
+		<footer class="conspira-footer-shell mt-auto py-4">
+		    <div class="container conspira-footer__inner">
+		        <div class="conspira-footer__brand">
+		            <span class="conspira-brand-icon"
+		                ><i class="ph-bold ph-eye" aria-hidden="true"></i
+		            ></span>
+		            <div>
+		                <p class="conspira-footer__title mb-0">Conspira</p>
+		                <p class="conspira-footer__subtitle mb-0">
+		                    Teorias da Conspiração · Ficha 5
+		                </p>
+		            </div>
+		        </div>
+
+		        <div class="conspira-footer__badges">
+		            <span class="conspira-footer-badge">Node.js</span>
+		            <span class="conspira-footer-badge">Express</span>
+		            <span class="conspira-footer-badge">EJS</span>
+		            <span class="conspira-footer-badge">MongoDB Atlas</span>
+		        </div>
+
+		        <div class="conspira-footer__copy">
+		            &copy; <%= new Date().getFullYear() %> Enigma Corporation. Todos os direitos reservados.
+		        </div>
+		    </div>
+		</footer>
+
+        <!-- Bootstrap JS (bundle com Popper) -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Espaço para scripts específicos da app (se precisares mais tarde) -->
+        <!-- <script src="/app.js"></script> -->
+    </body>
+</html>

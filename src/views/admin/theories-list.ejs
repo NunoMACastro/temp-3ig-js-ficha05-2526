@@ -1,0 +1,136 @@
+<%- include('../partials/_head') %>
+<%- include('../partials/_navbar') %>
+
+<div class="conspira-shell-gradient">
+    <main class="container admin-list-layout">
+        <section class="admin-list-hero">
+            <div>
+                <p class="admin-eyebrow">Centro de Gestão</p>
+                <h1><%= tituloPagina %></h1>
+                <p>
+                    Gere o catálogo de teorias: cria novas entradas, edita as
+                    favoritas e mantém o arquivo sempre atualizado.
+                </p>
+                <p class="admin-total-meta">
+                    Total de teorias: <strong><%= total %></strong>
+                </p>
+            </div>
+
+            <div class="admin-hero-actions">
+                <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+                <div class="admin-user-chip">
+                    <span>Autenticado como</span>
+                    <strong><%= currentUser.displayName %></strong>
+                    <small><%= currentUser.email %></small>
+                </div>
+                <% } %>
+
+                <a href="/admin/teorias/nova" class="conspira-nav-link conspira-nav-link--primary">
+                    <span aria-hidden="true">＋</span>
+                    Nova teoria
+                </a>
+            </div>
+        </section>
+
+        <%- include('../partials/_alerts', { erros }) %>
+
+        <% if (!theories || theories.length === 0) { %>
+        <div class="conspira-empty-card text-center">
+            <h3>Ainda não existem teorias.</h3>
+            <p class="mb-3">
+                Clica em “Nova teoria” para inaugurar o laboratório de
+                conspirações.
+            </p>
+            <a href="/admin/teorias/nova" class="conspira-link-pill">Criar teoria</a>
+        </div>
+        <% } else { %>
+        <div class="admin-card-stack">
+            <% theories.forEach(function (t, index) { 
+                const numTags = (t.tags && t.tags.length) || 0;
+                const numComentarios = (t.comments && t.comments.length) || 0;
+            %>
+            <article class="admin-card">
+                <div class="admin-card__header">
+                    <div class="admin-card__index">
+                        <span class="admin-card__number"><%= index + 1 %></span>
+                        <span class="theory-card-v2__badge complexity-<%= t.complexityLevel || 'medium' %>">
+                            <span class="theory-card-v2__badge-icon">↗</span>
+                            <%= t.complexityLevel === 'low'
+                                ? 'Baixa'
+                                : t.complexityLevel === 'high'
+                                ? 'Alta'
+                                : 'Média' %>
+                        </span>
+                    </div>
+
+                    <div class="admin-card__slug">
+                        <% if (t.slug) { %>
+                        <span>Slug: <code><%= t.slug %></code></span>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="admin-card__body">
+                    <h2><%= t.title %></h2>
+                    <p class="admin-card__summary"><%= t.summary %></p>
+
+                    <% if (numTags > 0) { %>
+                    <div class="admin-card__tags">
+                        <% t.tags.forEach(function (tag) { %>
+                        <span class="tag-pill">
+                            <span class="tag-pill-icon">#</span>
+                            <%= tag %>
+                        </span>
+                        <% }) %>
+                    </div>
+                    <% } %>
+
+                    <div class="admin-card__meta">
+                        <% if (t.createdAt) { %>
+                        <span>
+                            Criada em
+                            <strong><%= new Date(t.createdAt).toLocaleDateString('pt-PT') %></strong>
+                        </span>
+                        <% } %>
+                        <% if (t.updatedAt) { %>
+                        <span>
+                            Atualizada em
+                            <strong><%= new Date(t.updatedAt).toLocaleDateString('pt-PT') %></strong>
+                        </span>
+                        <% } %>
+                        <span><%= numTags %> tag(s)</span>
+                        <span><%= numComentarios %> comentário(s)</span>
+                    </div>
+                </div>
+
+                <div class="admin-card__actions">
+                    <a href="/teorias/<%= t.slug %>" class="admin-action-btn">
+                        Ver público
+                    </a>
+                    <a
+                        href="/admin/teorias/<%= t._id %>/editar"
+                        class="admin-action-btn admin-action-btn--primary"
+                    >
+                        Editar
+                    </a>
+                    <form
+                        action="/admin/teorias/<%= t._id %>/apagar"
+                        method="post"
+                        onsubmit="return confirm('Tens a certeza que queres apagar esta teoria? Esta ação não pode ser desfeita.');"
+                    >
+                        <button
+                            type="submit"
+                            class="admin-action-btn admin-action-btn--danger"
+                        >
+                            Apagar
+                        </button>
+                    </form>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+        <% } %>
+    </main>
+</div>
+
+<%- include('../partials/_footer') %>

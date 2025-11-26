@@ -1,0 +1,81 @@
+<%- include('../partials/_head') %> <%- include('../partials/_navbar') %>
+
+<div class="conspira-shell-gradient">
+    <main class="auth-page container">
+        <section class="auth-card">
+            <div class="auth-hero">
+                <div class="auth-logo-circle">
+                    <i class="ph-bold ph-eye" aria-hidden="true"></i>
+                </div>
+                <h1 class="auth-title">Conspira</h1>
+                <p class="auth-subtitle">
+                    Entra para explorar teorias da conspiração e gerir o
+                    laboratório secreto.
+                </p>
+            </div>
+
+            <!-- Erros de autenticação -->
+            <%- include('../partials/_alerts', { erros }) %>
+
+            <form action="/login" method="post" class="auth-form">
+                <div class="auth-field">
+                    <label for="email" class="auth-label">Email</label>
+                    <div class="auth-input-wrapper">
+                        <span class="auth-input-icon" aria-hidden="true">
+                            <i class="ph ph-envelope"></i>
+                        </span>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="auth-input"
+                            placeholder="admin@conspira.local"
+                            required
+                            value="<%= valores.email %>"
+                        />
+                    </div>
+                </div>
+
+                <div class="auth-field">
+                    <label for="password" class="auth-label">Password</label>
+                    <div class="auth-input-wrapper">
+                        <span class="auth-input-icon" aria-hidden="true">
+                            <i class="ph ph-lock-key"></i>
+                        </span>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="auth-input"
+                            placeholder="••••••••"
+                            required
+                            minlength="4"
+                        />
+                    </div>
+                </div>
+
+                <button class="auth-submit" type="submit">
+                    Entrar
+                </button>
+            </form>
+
+            <div class="auth-credentials-card">
+                <p class="mb-2">Credenciais de teste:</p>
+                <p class="mb-1">
+                    <strong>Admin:</strong> admin@conspira.local / admin123
+                </p>
+                <p class="mb-0">
+                    <strong>User:</strong> user@conspira.local / user123
+                </p>
+            </div>
+
+            <div class="auth-back-link">
+                <a href="/teorias" class="conspira-link-pill">
+                    Voltar às teorias
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
+
+<%- include('../partials/_footer') %>

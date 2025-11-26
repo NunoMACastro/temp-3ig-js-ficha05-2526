@@ -1,0 +1,77 @@
+<%- include('partials/_head') %>
+<%- include('partials/_navbar') %>
+
+<main class="container conspira-main" style="max-width: 720px">
+    <!--
+        Página 500 — Erro interno
+        -------------------------
+        VARIÁVEIS ESPERADAS (opcionais):
+        - tituloPagina → ex.: "Erro interno do servidor".
+        - erros        → array de mensagens amigáveis para o utilizador
+                         (usado pelo partial _alerts).
+        - mensagem     → string opcional com explicação simples.
+        - errorId      → identificador opcional do erro para suporte/debug.
+    -->
+
+    <section class="py-5">
+        <!-- Mensagens vindas do controlador (se existirem) -->
+        <%- include('partials/_alerts', { erros }) %>
+
+        <article class="conspira-card shadow-sm p-4 text-center">
+            <p class="text-uppercase small text-muted mb-2">
+                Erro 500
+            </p>
+
+            <h1 class="mb-3">
+                <%= typeof tituloPagina !== 'undefined' && tituloPagina
+                    ? tituloPagina
+                    : 'Ocorreu um erro inesperado' %>
+            </h1>
+
+            <p class="text-muted mb-3">
+                Ocorreu um problema ao processar o teu pedido.
+                Isto pode ser temporário ou resultado de dados inválidos.
+            </p>
+
+            <% if (typeof mensagem !== 'undefined' && mensagem) { %>
+                <p class="text-muted mb-3">
+                    <%= mensagem %>
+                </p>
+            <% } %>
+
+            <% if (typeof errorId !== 'undefined' && errorId) { %>
+                <p class="text-muted small mb-4">
+                    ID do erro:
+                    <code><%= errorId %></code>
+                </p>
+            <% } else { %>
+                <p class="text-muted small mb-4">
+                    Podes tentar novamente. Se o problema continuar,
+                    fala com o professor ou administrador da aplicação.
+                </p>
+            <% } %>
+
+            <div
+                class="d-flex flex-column flex-md-row justify-content-center gap-2"
+            >
+                <a href="/teorias" class="btn btn-conspira-primary">
+                    Voltar às teorias
+                </a>
+
+                <a href="/" class="btn btn-outline-secondary">
+                    Ir para a página inicial
+                </a>
+
+                <button
+                    type="button"
+                    class="btn btn-link text-decoration-none"
+                    onclick="window.history.back();"
+                >
+                    Voltar atrás
+                </button>
+            </div>
+        </article>
+    </section>
+</main>
+
+<%- include('partials/_footer') %>

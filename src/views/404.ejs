@@ -1,0 +1,57 @@
+<%- include('partials/_head') %>
+<%- include('partials/_navbar') %>
+
+<main class="container conspira-main" style="max-width: 720px">
+    <!--
+        Página 404 — Não encontrada
+        ---------------------------
+        VARIÁVEIS ESPERADAS:
+        - tituloPagina → normalmente "Página não encontrada".
+    -->
+
+    <section class="py-5">
+        <article class="conspira-card shadow-sm p-4 text-center">
+            <p class="text-uppercase small text-muted mb-2">
+                Erro 404
+            </p>
+
+            <h1 class="mb-3">
+                <%= typeof tituloPagina !== 'undefined' && tituloPagina
+                    ? tituloPagina
+                    : 'Página não encontrada' %>
+            </h1>
+
+            <p class="text-muted mb-4">
+                A página que tentaste aceder não existe, foi movida
+                ou o endereço está incorreto.
+            </p>
+
+            <p class="text-muted small mb-4">
+                Verifica o URL ou usa um dos botões abaixo para continuar a
+                explorar as teorias da conspiração.
+            </p>
+
+            <div
+                class="d-flex flex-column flex-md-row justify-content-center gap-2"
+            >
+                <a href="/teorias" class="btn btn-conspira-primary">
+                    Ir para a lista de teorias
+                </a>
+
+                <a href="/" class="btn btn-outline-secondary">
+                    Ir para a página inicial
+                </a>
+
+                <button
+                    type="button"
+                    class="btn btn-link text-decoration-none"
+                    onclick="window.history.back();"
+                >
+                    Voltar atrás
+                </button>
+            </div>
+        </article>
+    </section>
+</main>
+
+<%- include('partials/_footer') %>
