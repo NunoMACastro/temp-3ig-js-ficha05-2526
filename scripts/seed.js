@@ -169,16 +169,12 @@ async function criarTeorias() {
             tags: ["vigilancia", "animais", "parques"],
             comments: [
                 {
-                    authorName: "Teórico Cético",
-                    content:
-                        "Embora a ideia seja intrigante, não há provas concretas que sustentem esta teoria. Alguém já tentou capturar um pato para examinar se tem componentes eletrónicos?",
-                    createdAt: new Date(),
+                    authorName: "Administrador das Teorias",
+                    text: "Confirmo: nunca vi um pato bebé num jardim urbano. Coincidência? 👀",
                 },
                 {
                     authorName: "Curioso Anónimo",
-                    content:
-                        "Já reparei que os patos parecem seguir as pessoas com câmaras. Talvez estejam a recolher dados para o governo!",
-                    createdAt: new Date(),
+                    text: "Então aquele pato que me seguiu até ao carro estava a tirar notas…",
                 },
             ],
         },
@@ -192,10 +188,8 @@ async function criarTeorias() {
             tags: ["animais", "conspiracao", "cidades"],
             comments: [
                 {
-                    authorName: "Observador Urbano",
-                    content:
-                        "Nunca tinha pensado nisso, mas faz sentido! Os pombos parecem sempre saber quando o carro está limpo.",
-                    createdAt: new Date(),
+                    authorName: "Condutor Exasperado",
+                    text: "Explica porque é que só sujam o carro quando tenho reunião importante.",
                 },
             ],
         },
@@ -207,6 +201,12 @@ async function criarTeorias() {
                 'Segundo cálculos avançados de física teórica altamente questionável, o movimento rotativo da máquina de lavar a altas velocidades, combinado com as propriedades únicas do tecido das meias (geralmente algodão ou fibras sintéticas), cria uma "tempestade perfeita" de condições que podem rasgar momentaneamente o tecido do espaço-tempo. As meias, sendo pequenas e de baixa densidade, seriam sugadas através destes micro-portais para uma dimensão paralela - a "Dimensão das Meias Perdidas". A teoria explica por que razão é sempre só UMA meia que desaparece: o portal é instável e fecha-se rapidamente após sugar o primeiro objeto. Estudos independentes (leia-se: pessoas frustradas no Reddit) notaram que as meias perdidas são geralmente as favoritas ou as mais caras, sugerindo que a dimensão paralela tem algum tipo de critério de seleção baseado em valor emocional. Alguns teóricos mais extremos acreditam que existe uma civilização inteira construída com meias desaparecidas nessa dimensão, onde seres unípedes vivem em harmonia. A prova final? Ninguém, em toda a história da humanidade, conseguiu alguma vez encontrar uma meia desaparecida depois de procurar exaustivamente.',
             complexityLevel: "medium",
             tags: ["fisica", "casa", "dimensoes"],
+            comments: [
+                {
+                    authorName: "Estudante Desesperado",
+                    text: "A minha meia da sorte de exames claramente foi promovida a entidade interdimensional.",
+                },
+            ],
         },
         {
             title: "As empresas funerárias criaram o desporto radical para aumentar o negócio",
@@ -216,6 +216,16 @@ async function criarTeorias() {
                 'A teoria sugere que nos anos 80, quando o mercado funerário estava em crise (as pessoas viviam demasiado tempo graças aos avanços médicos), um cartel de empresas funerárias reuniu-se secretamente em Genebra para resolver o "problema da longevidade". A solução? Criar uma cultura de desportos radicais que normalizasse comportamentos de risco extremo entre jovens saudáveis. Documentos alegadamente vazados mostram campanhas massivas para popularizar atividades como paraquedismo, bungee jumping, parkour, wingsuit flying, e surf de ondas gigantes. O slogan "viver ao limite" não seria sobre liberdade, mas sim marketing disfarçado de memento mori. Os "influencers" de desportos radicais? Financiados secretamente através de empresas fantasma. Os vídeos virais de acidentes quase fatais? Publicidade subliminar para normalizar o perigo. A prova mais perturbadora: investigação independente revelou que muitas empresas de equipamento radical têm acionistas em comum com grandes funerárias multinacionais. O pico de popularidade do Red Bull (que "dá asas") coincidiu exatamente com a abertura de 347 novas agências funerárias especializadas em "cerimónias jovens e modernas" com caixões coloridos e música eletrónica. Os pacotes de seguro de vida destes desportos têm cláusulas suspeitosamente detalhadas sobre como querem ser enterrados, quase como se estivessem a fazer pré-venda. Alguns teóricos apontam que festivais de desportos radicais são sempre patrocinados por marcas cujos CEOs têm ligações familiares a empresas funerárias. Coincidência? Os defensores desta teoria dizem que não.',
             complexityLevel: "high",
             tags: ["desporto", "economia", "morte"],
+            comments: [
+                {
+                    authorName: "Administrador das Teorias",
+                    text: "Chamem-lhe sinergias de negócio…",
+                },
+                {
+                    authorName: "Curioso Anónimo",
+                    text: "De repente o paraquedismo parece muito mais caro… em vários sentidos.",
+                },
+            ],
         },
         {
             title: "Os fabricantes de alarmes de incêndio sabem exatamente quando vais adormecer",
@@ -227,10 +237,8 @@ async function criarTeorias() {
             tags: ["tecnologia", "sono", "sadismo"],
             comments: [
                 {
-                    authorName: "Insone Crónico",
-                    content:
-                        "Isto explica tanta coisa! Sempre pensei que havia algo de estranho nos alarmes de incêndio.",
-                    createdAt: new Date(),
+                    authorName: "Vítima do BIP",
+                    text: "Escrevi isto às 3h12 depois do terceiro BIP.",
                 },
             ],
         },
@@ -242,6 +250,12 @@ async function criarTeorias() {
                 "Segundo esta teoria, alguns semáforos instalados em grandes cidades não servem apenas para controlar o fluxo de carros. Eles estariam equipados com câmaras capazes de ler microexpressões faciais e sensores que detetam padrões de stress na multidão. Com base nesses dados, o sistema atrasaria ou adiantaria o sinal verde para manipular discretamente o humor das pessoas: mais tempo à espera em dias de protesto, passagens rápidas em dias de grandes eventos, e assim por diante. A hipótese sugere que estes ajustes são usados como ferramenta de 'gestão emocional urbana', reduzindo a probabilidade de conflitos visíveis, mas aumentando a sensação difusa de cansaço e irritação.",
             complexityLevel: "medium",
             tags: ["transito", "monitorizacao", "humor"],
+            comments: [
+                {
+                    authorName: "Condutor Atrasado",
+                    text: "Então o semáforo sabe quando tenho mesmo de chegar a horas.",
+                },
+            ],
         },
         {
             title: "As máquinas de café que treinam algoritmos de produtividade secreta",
@@ -251,6 +265,12 @@ async function criarTeorias() {
                 "De acordo com esta teoria, certas máquinas de café em escritórios e espaços de cowork não se limitam a servir bebidas. Cada vez que escolhes o tipo de café, a intensidade ou o horário em que o consomes, a máquina regista silenciosamente essa informação. Esses dados seriam enviados para um sistema central que constrói perfis de produtividade: quem rende mais depois de um expresso, quem precisa de dois cafés para ficar minimamente funcional, e em que horários cada equipa atinge o pico de concentração. A partir daqui, decisões sobre reuniões, prazos e até iluminação do escritório poderiam ser ajustadas para maximizar a produção sem que ninguém perceba que o 'cheiro a café' é também uma ferramenta de monitorização.",
             complexityLevel: "high",
             tags: ["escritorio", "dados", "produtividade"],
+            comments: [
+                {
+                    authorName: "Estagiário Caffeinado",
+                    text: "Se a máquina me julga pelo terceiro café, estamos tramados.",
+                },
+            ],
         },
         {
             title: "Os carregadores de telemóvel que afinam o ciclo de sono dos estudantes",
@@ -260,6 +280,12 @@ async function criarTeorias() {
                 "Esta teoria defende que certos carregadores de telemóvel, especialmente os vendidos em campanhas de regresso às aulas, incluem um microcontrolador que decide a velocidade real de carregamento durante a noite. Quando o utilizador tem o hábito de ir dormir tarde, o carregador acelera a carga inicialmente para que o telemóvel chegue rapidamente aos 70–80%, incentivando o uso prolongado. Só mais tarde, quando o utilizador finalmente vai dormir, o carregador abranda a carga para terminar perto da hora de acordar. A consequência é um ciclo de sono ligeiramente desfasado que torna os estudantes mais dependentes de cafés, bebidas energéticas e aplicações de gestão de tempo. Tudo isto, claro, sem qualquer aviso no manual de instruções.",
             complexityLevel: "medium",
             tags: ["sono", "telemovel", "estudantes"],
+            comments: [
+                {
+                    authorName: "Estudante Crónicamente Atrasado",
+                    text: "Finalmente uma explicação científica para o meu sono às 3h.",
+                },
+            ],
         },
         {
             title: "As plantas decorativas que medem o nível de atenção nas salas de aula online",
@@ -269,6 +295,12 @@ async function criarTeorias() {
                 "Nesta teoria, algumas plantas decorativas supostamente 'otimizadas' para escritórios e cantos de estudo viriam, na verdade, com sensores discretos de luz e som integrados nos vasos. Durante aulas online, essas plantas recolheriam dados sobre movimento, padrões de digitação e variações de voz dos participantes. A informação seria agregada por algoritmo e convertida em um 'índice de atenção real' da turma. Plataformas de ensino poderiam então usar esse índice para ajustar a dificuldade dos conteúdos, o ritmo das explicações ou até sugerir pausas estratégicas. Oficialmente, as plantas seriam apenas um elemento de bem-estar; na prática, funcionariam como pequenos observadores silenciosos de comportamento académico.",
             complexityLevel: "high",
             tags: ["educacao", "monitorizacao", "online"],
+            comments: [
+                {
+                    authorName: "Aluno Suspeito",
+                    text: "A planta ao lado do portátil está claramente a tomar notas.",
+                },
+            ],
         },
         {
             title: "Os relógios de parede que sincronizam pequenos atrasos em reuniões importantes",
@@ -285,7 +317,7 @@ async function criarTeorias() {
     const teoriasParaCriar = teoriasBase.map((t) => ({
         ...t,
         slug: gerarSlug(t.title),
-        comments: [],
+        comments: t.comments || [],
     }));
 
     const createdTheories = await Theory.insertMany(teoriasParaCriar);
