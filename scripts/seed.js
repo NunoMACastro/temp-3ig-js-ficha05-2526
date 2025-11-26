@@ -167,6 +167,20 @@ async function criarTeorias() {
                 'Esta teoria começou quando alguém reparou que os patos urbanos nunca parecem verdadeiramente assustados com humanos, ao contrário dos patos selvagens. A hipótese é simples mas perturbadora: os "patos" que vemos em jardins públicos, fontes e lagos urbanos são na verdade sofisticados drones de vigilância disfarçados. O comportamento de "dormir com a cabeça debaixo da asa" seria, na realidade, o modo de carregamento solar através de painéis fotovoltaicos escondidos nas penas. O "quack" seria um sistema de comunicação entre unidades. A razão pela qual seguem pessoas com pão? Reconhecimento facial e mapeamento de padrões de comportamento social. Os defensores desta teoria apontam ainda para o facto de que ninguém nunca viu um pato bebé em parques urbanos - porque são fabricados já adultos. O grasnado característico seria, na verdade, um sistema de eco-localização similar ao sonar, permitindo mapear tridimensionalmente os espaços públicos. Quando formam filas organizadas atrás de pais com crianças, estariam a testar algoritmos de seguimento autónomo.',
             complexityLevel: "medium",
             tags: ["vigilancia", "animais", "parques"],
+            comments: [
+                {
+                    authorName: "Teórico Cético",
+                    content:
+                        "Embora a ideia seja intrigante, não há provas concretas que sustentem esta teoria. Alguém já tentou capturar um pato para examinar se tem componentes eletrónicos?",
+                    createdAt: new Date(),
+                },
+                {
+                    authorName: "Curioso Anónimo",
+                    content:
+                        "Já reparei que os patos parecem seguir as pessoas com câmaras. Talvez estejam a recolher dados para o governo!",
+                    createdAt: new Date(),
+                },
+            ],
         },
         {
             title: "Os pombos urbanos têm reuniões secretas para decidir onde fazer cocó",
@@ -176,6 +190,14 @@ async function criarTeorias() {
                 'Qualquer pessoa que já lavou o carro sabe a verdade: em menos de 24 horas, aparece cocó de pombo. Esta teoria defende que isto não é coincidência, mas sim resultado de uma rede de comunicação sofisticada entre pombos urbanos. Observadores atentos notaram que os pombos frequentemente se reúnem em grupos em telhados e cornijas, aparentemente sem fazer nada - mas estariam, na realidade, a realizar briefings táticos. A teoria propõe a existência de "pombos-sentinela" que identificam carros recém-lavados (o brilho diferente é facilmente detectável do ar) e comunicam a localização aos "pombos-bombardeiros" através de um sistema complexo de arrulhos codificados. O timing perfeito - sempre quando o dono acabou de pagar a lavagem - seria resultado de observação e aprendizagem de padrões humanos ao longo de gerações. Alguns investigadores amadores documentaram casos em que múltiplos pombos atacam o mesmo carro simultaneamente de diferentes ângulos, numa coordenação que sugere planeamento militar. A motivação? Vingança ancestral por séculos de estátuas de humanos que eles são obrigados a limpar. Existem até relatos de "listas negras de alvos prioritários" que incluem carros de luxo, conversíveis recém-abertos, e qualquer veículo estacionado debaixo do sítio favorito de descanso deles. A estrutura organizacional incluiria comandantes regionais (os pombos maiores e mais grisalhos) que coordenam operações em diferentes bairros da cidade.',
             complexityLevel: "medium",
             tags: ["animais", "conspiracao", "cidades"],
+            comments: [
+                {
+                    authorName: "Observador Urbano",
+                    content:
+                        "Nunca tinha pensado nisso, mas faz sentido! Os pombos parecem sempre saber quando o carro está limpo.",
+                    createdAt: new Date(),
+                },
+            ],
         },
         {
             title: "As meias desaparecidas na máquina de lavar vão para outra dimensão",
@@ -203,6 +225,14 @@ async function criarTeorias() {
                 'Qualquer pessoa que já teve um alarme de incêndio sabe a verdade aterradora: o aviso de bateria fraca NUNCA acontece durante o dia, quando estás acordado e podes resolvê-lo facilmente. É sempre às 3 ou 4 da manhã, quando finalmente conseguiste adormecer depois de horas a rolar na cama. Esta teoria propõe que os alarmes de incêndio modernos têm sensores de ondas cerebrais rudimentares (escondidos no chip principal) que detetam quando entras em sono profundo. Só então, numa crueldade meticulosamente calculada, emitem aquele "BIP" agudo de 120 decibéis a cada 30 segundos. A motivação económica é diabólica mas brilhante: os fabricantes descobriram através de grupos focais secretos nos anos 90 que alarmes que apitam durante o dia são imediatamente arrancados da parede com raiva e substituídos por marcas concorrentes. Mas alarmes que apitam de noite criam um trauma psicológico profundo que faz as pessoas comprarem baterias "premium de longa duração" (com margem de lucro de 300%) e até alarmes "silenciosos" mais caros. O intervalo de 30 segundos foi testado em laboratório e é calculado cientificamente para ser curto demais para conseguires voltar a adormecer, mas longo o suficiente para não conseguires prever quando vem o próximo BIP - maximizando a ansiedade. É essencialmente tortura acústica certificada, mas ninguém pode processar porque "tecnicamente está a cumprir a função de segurança contra incêndios". Testemunhas anónimas de dentro da indústria afirmam ter visto engenheiros a rir-se em conferências quando apresentam estudos sobre "optimização do timing de notificação noturna para maximizar resposta emocional do consumidor". Um denunciante alegou que existe um Easter egg no código de certos modelos: se mudares a bateria durante o dia, o alarme espera exatamente 72 horas antes de começar a apitar de novo... sempre de noite. A cereja no topo do bolo? As baterias "normais" duram exatamente o tempo da garantia, mas as "premium" falham logo depois do período de devolução.',
             complexityLevel: "medium",
             tags: ["tecnologia", "sono", "sadismo"],
+            comments: [
+                {
+                    authorName: "Insone Crónico",
+                    content:
+                        "Isto explica tanta coisa! Sempre pensei que havia algo de estranho nos alarmes de incêndio.",
+                    createdAt: new Date(),
+                },
+            ],
         },
         {
             title: "Os semáforos empáticos que ajustam o trânsito ao humor da cidade",
