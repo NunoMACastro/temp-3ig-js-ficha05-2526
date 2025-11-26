@@ -587,6 +587,7 @@ Passos iniciais:
 
 1. Garante que tens Node.js 18+ e npm instalados.
 2. Cria um repositório novo com base no template desta ficha:
+    - No GitHub: botão **Use this template** > **Create a new repository**.
     - GitHub Codespaces: botão **Code** > **Create codespace**.
     - VS Code local: `git clone <URL_DO_REPO_DA_TURMA>`, abrir pasta e instalar extensões sugeridas (JS/ESLint/EJS).
 3. No terminal, dentro da pasta do projeto:
